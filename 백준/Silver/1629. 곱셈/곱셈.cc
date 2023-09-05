@@ -27,7 +27,7 @@ long long  solution(long long count)
 	long long result = solution(count / 2);
 
 	result = (result * result) % divide_factor;
-	if (count % 2)
+	if (count & 1)
 	{
 		result = (result * num) % divide_factor;
 	}
