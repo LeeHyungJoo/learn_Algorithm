@@ -1,68 +1,39 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <unordered_map>
-#include <set>
-#include <unordered_set>
-#include <numeric>
 #include <algorithm>
-#include <stack>
-#include <chrono>
-#include <math.h>
-#include <bitset>
-#include <set>
-
 #include <iostream>
+
 using namespace std;
 
+map<int, int, greater<int>> flip_map(const map<int, int>& src)
+{
+    map<int, int, greater<int>> dst;
+    transform(src.begin(), src.end(), inserter(dst, dst.begin()), [&](const pair<int, int>& p) {return pair<int, int>(p.second, p.first); });
+    return dst;
+}
+
 vector<int> solution(string s) {
-    vector<int> answer;
-    
-    s.erase(s.begin());
-    s.back() = '{';
-
-    map<int, vector<int>> checks;
-    int last_idx = 1;
-    while (true)
+    map<int, int>checks;
+    string int_str;
+    for (auto c : s)
     {
-        auto idx = s.find('{', last_idx);
-        if (idx == s.npos)
-            break;
-
-        vector<int> t;
-        string temp;
-        for (int i = last_idx; i < idx; i++)
+        if (isdigit(c))
         {
-            if (!isdigit(s[i]) && !temp.empty())
-            {
-                t.push_back(atoi(temp.c_str()));
-                temp.clear();
-                continue;
-            }
-
-            temp.push_back(s[i]);
+            int_str.push_back(c);
         }
-
-        checks[t.size()] = t;
-        last_idx = idx + 1;
+        else if(!int_str.empty())
+        {
+            checks[atoi(int_str.c_str())]++;
+            int_str.clear();
+        }
     }
 
-    answer.resize(checks.rbegin()->first);
+    vector<int> answer(checks.size());
+    int idx = 0;
 
-    unordered_set<int> duplicated_check;
-    int idx_a = 0;
-    for (auto check : checks)
-    {
-        for (auto num : check.second)
-        {
-            if (duplicated_check.insert(num).second)
-            {
-                answer[idx_a] = num;
-                break;
-            }
-        }
-        idx_a++;
-    }
+    for (auto item : flip_map(checks))
+        answer[idx++] = item.second;
 
     return answer;
 }
