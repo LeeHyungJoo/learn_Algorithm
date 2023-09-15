@@ -1,33 +1,28 @@
-#include <vector>
 #include <stack>
-#include <algorithm>
 #include <iostream>
 
 using namespace std;
+
+int num_list[1000000];
+int answer[1000000];
 
 int main()
 {
 	int N;
 	cin >> N;
 
-	vector<int> num_list(N), answers(N);
-	for (int n = 0; n < N; n++)
-		cin >> num_list[n];
+	for (int n = 0; n < N; n++) cin >> num_list[n];
 
 	stack<int> stk;
-	reverse(num_list.begin(), num_list.end());
-	for (int n = 0; n < N; n++)
+	for (int n = N - 1; n >= 0 ; --n)
 	{
-		while (!stk.empty() && stk.top() <= num_list[n])
-			stk.pop();
+		while (!stk.empty() && stk.top() <= num_list[n]) stk.pop();
 
-		answers[n] = stk.empty() ? -1 : stk.top();
+		answer[n] = stk.empty() ? -1 : stk.top();
 		stk.push(num_list[n]);
 	}
-	
-	reverse(answers.begin(), answers.end());
-	for (auto answer : answers)
-		cout << answer << " ";
+
+	for (int n = 0; n < N; n++) cout << answer[n] << " ";
 
 	return 0;
 }
