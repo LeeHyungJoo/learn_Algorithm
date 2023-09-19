@@ -18,51 +18,31 @@ string solution(vector<int> numbers, string hand) {
 			number--;
 	}
 
-	int last_num_r = 11;
 	int last_num_l = 9;
+	int last_num_r = 11;
 	bool rCheck = false;
 	for (auto number : numbers)
 	{
 		int c_x = number % 3;
-		switch (c_x)
+		if (c_x == 1)
 		{
-		case 0:
-			rCheck = false;
-			break;
-		case 2:
-			rCheck = true;
-			break;
-		case 1:
-		{
-			int r_y = last_num_r / 3;
-			int r_x = last_num_r % 3;
-
-			int l_y = last_num_l / 3;
-			int l_x = last_num_l % 3;
-
-			int c_y = number / 3;
-
-			int dist_rc = dist(r_y, r_x, c_y, c_x);
-			int dist_lc = dist(l_y, l_x, c_y, c_x);
+			int dist_rc = dist(last_num_r / 3, last_num_r % 3, number / 3, 1);
+			int dist_lc = dist(last_num_l / 3, last_num_l % 3, number / 3, 1);
 
 			if (dist_rc == dist_lc)
 				rCheck = hand.find('r') != hand.npos;
 			else
 				rCheck = dist_rc < dist_lc;
 		}
-		break;
-		}
+		else
+			rCheck = c_x != 0;
 
 		if (rCheck)
-		{
 			last_num_r = number;
-			answer.push_back('R');
-		}
 		else
-		{
 			last_num_l = number;
-			answer.push_back('L');
-		}
+
+		answer.push_back(rCheck ? 'R' : 'L');
 	}
 
 	return answer;
