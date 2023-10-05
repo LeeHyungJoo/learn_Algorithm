@@ -9,9 +9,9 @@ string solution(vector<string> cards1, vector<string> cards2, vector<string> goa
 
     for (const auto& g : goal)
     {
-        if (cards1[c1_idx] == g)
+        if (c1_idx < cards1.size() && cards1[c1_idx] == g)
             c1_idx++;
-        else if (cards2[c2_idx] == g)
+        else if (c2_idx < cards2.size() && cards2[c2_idx] == g)
             c2_idx++;
         else
         {
