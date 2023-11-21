@@ -2,10 +2,8 @@ using System;
 
 public class Solution {
     public int solution(string myString, string pat) {
-        myString = myString.Replace('A', 'b');
-        myString = myString.Replace('B', 'a');
-        myString = myString.ToUpper();
+        myString = myString.Replace('A', 'b').Replace('B','a');
 
-        return myString.Contains(pat) ? 1 : 0;
+        return myString.ToUpper().Contains(pat) ? 1 : 0;
     }
 }
