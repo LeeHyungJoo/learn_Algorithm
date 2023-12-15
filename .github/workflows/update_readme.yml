@@ -1,0 +1,25 @@
+name: Update README with File Count
+
+on:
+  push:
+    branches:
+      - main  # Replace with your main branch name
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update README
+        run: bash update_readme.sh
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "sj_artist@naver.com"
+          git config --local user.name "LeeHyungJoo"
+          git add README.md
+          git commit -m "Update file count in README [skip ci]"
+          git push
