@@ -20,12 +20,12 @@ jobs:
 
       - name: Commit and push changes !
         run: |
-          git config --global user.email "prism9411@gmail.com"
-          git config --global user.name "LeeHyungJoo"
+          git config --local user.email "prism9411@gmail.com"
+          git config --local user.name "LeeHyungJoo"
           if [ -n "$(git status --porcelain)" ]; then
             git add update_readme.sh
             git add README.md
-            git commit -m "Update file count in README [skip ci]" --no-verify
+            git commit -m "Update file count in README [skip ci]"
             git push --force
           else 
             echo "No changes to commit."
