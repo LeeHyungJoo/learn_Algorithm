@@ -18,7 +18,7 @@ jobs:
           chmod +x update_readme.sh
           bash update_readme.sh
 
-      - name: Commit and push changes
+      - name: Commit and push changes !
         run: |
           git config --global user.email "prism9411@gmail.com"
           git config --global user.name "LeeHyungJoo"
