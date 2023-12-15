@@ -20,7 +20,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "prism9411@gmail.com"
+          git config --global user.email "prism9411@gmail.com"
+          git config --global user.name "LeeHyungJoo"
           git add README.md
           git commit -m "Update file count in README [skip ci]"
           git push
