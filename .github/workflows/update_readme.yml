@@ -11,7 +11,10 @@ jobs:
 
     steps:
       - name: Update README
-        run: bash update_readme.sh
+      
+        run: |
+          chmod +x update_readme.sh
+          bash update_readme.sh
 
       - name: Commit and push changes
         run: |
