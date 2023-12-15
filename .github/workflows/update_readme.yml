@@ -23,5 +23,6 @@ jobs:
           git config --global user.email "prism9411@gmail.com"
           git config --global user.name "LeeHyungJoo"
           git add update_readme.sh
+          git add README.md
           git commit -m "Update file count in README [skip ci]"
           git push
