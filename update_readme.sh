@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Calculate half the number of files
-file_count=$(git ls-files | grep -E '\.(cpp|cs)$' | wc -l)
+file_count=$(git ls-files '**/*.cpp' '**/*.cs' | wc -l)
 
 # Display values to verify calculations
 echo "Total number of files: $file_count"
