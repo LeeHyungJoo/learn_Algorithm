@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Update README
-      
         run: |
           chmod +x update_readme.sh
           bash update_readme.sh
