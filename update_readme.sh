@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Calculate half the number of files
+# Count the number of .cpp and .cs files
 file_count=$(git ls-files '**/*.cpp' '**/*.cs' | wc -l)
 
-# Display values to verify calculations
-echo "Total number of files: $file_count"
+# Display value to verify the calculation
+echo "Total number of .cpp and .cs files: $file_count"
 
-# Replace placeholder in README.md with the calculated value
-sed -i -E "/Total Count of Solved/ s/$/ $half_file_count/" README.md
+# Update file count after "Total Count of Solved" in README.md
+sed -i -E "s/(Total Count of Solved: )[0-9]+/\1$file_count/" README.md
