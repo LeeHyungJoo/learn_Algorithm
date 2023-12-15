@@ -25,7 +25,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add update_readme.sh
             git add README.md
-            git commit -m "[ci skip] Update file count in README"
+            git commit -m "[skip ci] Update file count in README"
             git push --force
           else 
             echo "No changes to commit."
