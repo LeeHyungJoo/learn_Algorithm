@@ -1,4 +1,4 @@
-name: Update README with File Count
+name: Update README with File Count [skip ci]
 
 on:
   push:
