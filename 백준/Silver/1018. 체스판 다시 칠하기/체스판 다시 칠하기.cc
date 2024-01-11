@@ -33,39 +33,15 @@ int TakeMinCnt(int y, int x)
 			char next = chess[i][j];
 
 			if (i & 1)
-			{
 				if (j & 1)
-				{
-					if (next == 'W')
-						bCnt++;
-					else
-						wCnt++;
-				}
+					next == 'W' ? bCnt++ : wCnt++;
 				else
-				{
-					if (next == 'B')
-						bCnt++;
-					else
-						wCnt++;
-				}
-			}
+					next == 'B' ? bCnt++ : wCnt++;
 			else
-			{
 				if (j & 1)
-				{
-					if (next == 'B')
-						bCnt++;
-					else
-						wCnt++;
-				}
+					next == 'B' ? bCnt++ : wCnt++;
 				else
-				{
-					if (next == 'W')
-						bCnt++;
-					else
-						wCnt++;
-				}
-			}
+					next == 'W' ? bCnt++ : wCnt++;
 		}
 
 	return min(wCnt, bCnt);
@@ -77,18 +53,13 @@ int main()
 	cin >> N >> M;
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
-		{
 			cin >> chess[i][j];
-		}
 
 	int minval = 9999999;
 	for (int i = 0; i < N - 8 + 1; i++)
-	{
 		for (int j = 0; j < M - 8 + 1; j++)
-		{
 			minval = min(TakeMinCnt(i, j), minval);
-		}
-	}
+
 	cout << minval;
 	return 0;
 }
