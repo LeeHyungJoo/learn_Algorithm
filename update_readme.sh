@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Count the number of .cpp and .cs files
-file_count=$(git ls-files '**/*.cpp' '**/*.cs' | wc -l)
+file_count=$(git ls-files '**/*.cpp' '**/*.cs' '**/.*cc' | wc -l)
 
 # Display value to verify the calculation
 echo "Total number of .cpp and .cs files: $file_count"
