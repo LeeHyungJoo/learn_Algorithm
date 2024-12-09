@@ -19,12 +19,8 @@ int solution(int soldierCnt, int shieldCnt, vector<int> enemySoldierWaves) {
 				break;
 
 			shieldCnt--;
-
-			if (!PQ.empty())
-			{
-				soldierCnt += PQ.top();
-				PQ.pop();
-			}
+			soldierCnt += PQ.top();
+			PQ.pop();
 		}
 
 		round++;
