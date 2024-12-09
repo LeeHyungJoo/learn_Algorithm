@@ -1,10 +1,10 @@
-# [unrated] 달리기 경주 - 178871 
+# [level 1] 달리기 경주 - 178871 
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/178871) 
 
 ### 성능 요약
 
-메모리: 4.2 MB, 시간: 0.02 ms
+메모리: 3.63 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 6일 11:19:5
 
 ### 문제 설명
 
@@ -67,4 +71,4 @@ Empty
 <p>4등인 "kai" 선수가 2번 추월하여 2등이 되고 앞서 3등, 2등인 "poe", "soe" 선수는 4등, 3등이 됩니다. 5등인 "mine" 선수가 2번 추월하여 4등, 3등인 "poe", "soe" 선수가 5등, 4등이 되고 경주가 끝납니다. 1등부터 배열에 담으면 ["mumu", "kai", "mine", "soe", "poe"]이 됩니다.</p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
